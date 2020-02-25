@@ -24,13 +24,14 @@ MESSAGE = MessageType()
 
 CODE = CodeLine()
 
+path = "/Users/umut/Desktop/Architecture/CodeGenerationCore/lib"
 #eger bir path belirlenmis ise
 #op = FileOperation("/Users/umut/Desktop/Architecture/CodeGenerationCore/lib")
 #run path kullanılmak isteniyorsa
 op = FileOperation()
 
 #init de verilen default path üzerine dosya oluşturulur.
-#op.createFile(fileName="test.swift",content="hello")
+op.createFile(fileName="test.swift",content="hello")
 
 #path param ile verilen path üzerine dosya oluşturulur.
 #op.createFileWithPath(path="lib/test",fileName="test.swift",content="hello")
@@ -38,6 +39,13 @@ op = FileOperation()
 
 #init de verilen default path üzerine klasör oluşturulur.
 #op.createFolder(folderName="hello/1")
+
+#path is valid
+#print(op.isExist("/Users/umut/Desktop/Architecture/CodeGenerationCore/lib"))
+
+#append file add content
+op.appendFile(fileName="test.swift",content="\nworld")
+
 
 #loglar kapali artik
 Environment.Shared().online()

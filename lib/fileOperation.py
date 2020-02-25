@@ -36,10 +36,10 @@ class FileOperation(Base):
     def createFile(self,fileName, content):
         filePath = self.getPath() + CODING.SLASH + fileName
         try:
-            text_file = open(filePath, "w")
-            text_file.write(content)
-            text_file.close()
-            Base.log(self,message = "FileOperation " + "createFile : " + filePath + " \ncontent : \n" + content,
+            filePath = open(filePath, "w")
+            filePath.write(content)
+            filePath.close()
+            Base.log(self,message = "FileOperation " + "createFile : " + str(filePath) + " \ncontent : \n" + content,
              messageType=MESSAGETYPE.INFO)
         except OSError as e:
             Base.log(self,message = "FileOperation " + "createFile : " 
@@ -48,11 +48,11 @@ class FileOperation(Base):
     def createFileWithPath(self,path,fileName, content):
         filePath = self.getPath() + CODING.SLASH + path + CODING.SLASH + fileName
         try:
-            text_file = open(filePath, "w")
-            text_file.write(content)
-            text_file.close()
+            filePath = open(filePath, "w")
+            filePath.write(content)
+            filePath.close()
             Base.log(self,message = "FileOperation " + "createFileWithPath : " + 
-            filePath + " \ncontent : \n" + content, messageType=MESSAGETYPE.INFO)
+            str(filePath) + " \ncontent : \n" + content, messageType=MESSAGETYPE.INFO)
         except OSError as e:
             Base.log(self,message = "FileOperation " + "createFileWithPath : " 
             + " \error : \n" + str(e), messageType=MESSAGETYPE.ERROR)
@@ -67,4 +67,26 @@ class FileOperation(Base):
         except OSError as e:
             Base.log(self,message = "FileOperation " + "createFileWithPath : " + " \error : \n" + 
             str(e), messageType=MESSAGETYPE.ERROR)
+
+    def appendFile(self, fileName, content,isTruncate=False):
+        filePath = self.getPath() + CODING.SLASH + fileName
+        try:
+            with open(filePath, "a+") as f:
+            # f.seek(0)
+                if isTruncate:
+                    f.truncate()
+                f.write(content)
+                f.close()
+                Base.log(self,message = "FileOperation " + "appendFile : " + 
+                    filePath + "\n", messageType=MESSAGETYPE.INFO)
+        except OSError as e:
+            Base.log(self,message = "FileOperation " + "appendFile : " + " \error : \n" + 
+            str(e), messageType=MESSAGETYPE.ERROR)
+    
+    #hast path valid and exist return true
+    def isExist(self,path):
+        if os.path.exists(path):
+            return True
+        else:
+            return False
 
