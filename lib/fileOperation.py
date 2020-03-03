@@ -64,6 +64,9 @@ class FileOperation(Base):
                 os.makedirs(folderPath)
                 Base.log(self,message = "FileOperation " + "createFolder : " + 
                 folderPath + "\n", messageType=MESSAGETYPE.INFO)
+            else :
+                Base.log(self,message = "FileOperation " + "createFolder : " + 
+                folderPath + "\n already path", messageType=MESSAGETYPE.INFO)
         except OSError as e:
             Base.log(self,message = "FileOperation " + "createFileWithPath : " + " \error : \n" + 
             str(e), messageType=MESSAGETYPE.ERROR)
@@ -83,10 +86,40 @@ class FileOperation(Base):
             Base.log(self,message = "FileOperation " + "appendFile : " + " \error : \n" + 
             str(e), messageType=MESSAGETYPE.ERROR)
     
-    #hast path valid and exist return true
+    #has path valid and exist return true
     def isExist(self,path):
         if os.path.exists(path):
             return True
         else:
             return False
 
+    #for file of content is get
+    def getFileContentWithPathx(self,filePath):
+        print(filePath)
+        if self.isExist(filePath):
+            fileContent = ""
+            data = open(filePath, "r").read(20000)
+            fileContent = data.strip()
+            return fileContent
+        else:
+            Base.log(self,message = "FileOperation " + "getFileContent : " + filePath +
+                     "\n has not found file", messageType=MESSAGETYPE.INFO)
+
+    #for content of file is get with path 
+    def getFileContent(self,fileName):
+        filePath = self.getPath() + CODING.SLASH + fileName
+        return self.getFileContentWithPath(filePath)
+    
+    #for content of file is get
+    def getFileContentWithPath(self,filePath):
+        print(filePath)
+        global content
+        if self.isExist(filePath):
+            print("urn")
+            with open(filePath, "r") as data:
+                content = data.read()
+            return content
+        else:
+            Base.log(self,message = "FileOperation " + "getFileContent : " + filePath +
+                     "\n has not found file", messageType=MESSAGETYPE.INFO)
+            return ""
