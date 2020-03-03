@@ -1,5 +1,0 @@
-{
-    "python.pythonPath": "/anaconda3/envs/p36/bin/python",
-    "git.ignoreLimitWarning": true,
-    "python.formatting.provider": "black"
-}
