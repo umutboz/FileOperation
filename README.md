@@ -12,16 +12,25 @@ from fileOperation import FileOperation
 ```python
 op = FileOperation()
 
-op.createFile(fileName="test.swift",content="hello")
+#get content of file with relative Path
+print(op.getFileContentWithPath(filePath=path + CODE.SLASH + fileName))
 
-op.createFileWithPath(path="lib/test",fileName="test.swift",content="hello")
+#get content of file
+print(op.getFileContent(fileName=fileName))
+print(op.getFileContent(fileName="lib/test.py"))
 
+#init de verilen default path üzerine dosya oluşturulur.
+op.createFile(fileName=fileName,content="hello")
+
+#path param ile verilen path üzerine dosya oluşturulur.
+op.createFileWithPath(path="lib",fileName="test.swift",content="hello")
+
+
+#init de verilen default path üzerine klasör oluşturulur.
 op.createFolder(folderName="hello/1")
 
-#all information disable, default env is debug
+#path is valid
+print(op.isExist("/Users/umut/Desktop/Architecture/CodeGenerationCore/lib"))
 
-#should be import Environment package
-from environment import Environment
-
-Environment.Shared().online()
-
+#append file add content
+op.appendFile(fileName="test.swift",content="\nworld")
