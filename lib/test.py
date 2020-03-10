@@ -34,9 +34,11 @@ op = FileOperation()
 #get content of file with relative Path
 #print(op.getFileContentWithPath(filePath=path + CODE.SLASH + fileName))
 
-#get content of file
-#print(op.getFileContent(fileName=fileName))
-print(op.getFileContent(fileName="lib/test.py"))
+#get content of file with fileName on the current path
+print(op.getFileContentFileName(fileName="lib/test.py"))
+
+#get content of file with fileName on the relative path
+#print(op.getFileContent(filePath = "/lib/test.py"))
 
 #init de verilen default path üzerine dosya oluşturulur.
 #op.createFile(fileName=fileName,content="hello")

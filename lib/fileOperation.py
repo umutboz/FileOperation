@@ -93,26 +93,8 @@ class FileOperation(Base):
         else:
             return False
 
-    #for file of content is get
-    def getFileContentWithPathx(self,filePath):
-        print(filePath)
-        if self.isExist(filePath):
-            fileContent = ""
-            data = open(filePath, "r").read(20000)
-            fileContent = data.strip()
-            return fileContent
-        else:
-            Base.log(self,message = "FileOperation " + "getFileContent : " + filePath +
-                     "\n has not found file", messageType=MESSAGETYPE.INFO)
-
-    #for content of file is get with path 
-    def getFileContent(self,fileName):
-        filePath = self.getPath() + CODING.SLASH + fileName
-        return self.getFileContentWithPath(filePath)
-    
-    #for content of file is get
-    def getFileContentWithPath(self,filePath):
-        print(filePath)
+    #for content of file with filePath
+    def getFileContent(self,filePath):
         global content
         if self.isExist(filePath):
             print("urn")
@@ -123,3 +105,10 @@ class FileOperation(Base):
             Base.log(self,message = "FileOperation " + "getFileContent : " + filePath +
                      "\n has not found file", messageType=MESSAGETYPE.INFO)
             return ""
+    
+    #for content of file with fileName
+    def getFileContentFileName(self,fileName):
+        filePath = self.getPath() + CODING.SLASH + fileName
+        return self.getFileContent(filePath=filePath)
+
+ 
