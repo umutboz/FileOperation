@@ -13,7 +13,7 @@ from fileOperation import FileOperation
 op = FileOperation()
 
 #get content of file with relative Path
-print(op.getFileContentWithPath(filePath=path + CODE.SLASH + fileName))
+print(op.readContent(filePath=path + CODE.SLASH + fileName))
 
 #get content of file
 print(op.getFileContent(fileName=fileName))
@@ -34,3 +34,9 @@ print(op.isExist("/Users/umut/Desktop/Architecture/CodeGenerationCore/lib"))
 
 #append file add content
 op.appendFile(fileName="test.swift",content="\nworld")
+
+#remove file with fileName
+op.removeFile(fileName=fileName)
+
+#remove file with relativePath
+op.remove(filePath="relative path")
