@@ -94,21 +94,36 @@ class FileOperation(Base):
             return False
 
     #for content of file with filePath
-    def getFileContent(self,filePath):
+    def readContent(self,filePath):
         global content
         if self.isExist(filePath):
-            print("urn")
             with open(filePath, "r") as data:
                 content = data.read()
             return content
         else:
-            Base.log(self,message = "FileOperation " + "getFileContent : " + filePath +
+            Base.log(self, message="FileOperation " + "readContent : " + filePath +
                      "\n has not found file", messageType=MESSAGETYPE.INFO)
             return ""
     
     #for content of file with fileName
-    def getFileContentFileName(self,fileName):
+    def getFileContent(self,fileName):
         filePath = self.getPath() + CODING.SLASH + fileName
-        return self.getFileContent(filePath=filePath)
+        return self.readContent(filePath=filePath)
+    
+    #for remove file with filePath
+    def remove(self, filePath):
+        if self.isExist(filePath):
+            os.remove(filePath)
+            Base.log(self, message="FileOperation " + "remove : " + filePath +
+                     "\n file was removed", messageType=MESSAGETYPE.INFO)
+        else:
+            Base.log(self, message="FileOperation " + "remove : " + filePath +
+                     "\n has not found file", messageType=MESSAGETYPE.INFO)
+            return ""
+
+    #for remove file with fileName
+    def removeFile(self, fileName):
+        filePath = self.getPath() + CODING.SLASH + fileName
+        self.remove(filePath)
 
  

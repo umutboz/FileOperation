@@ -35,7 +35,7 @@ op = FileOperation()
 #print(op.getFileContentWithPath(filePath=path + CODE.SLASH + fileName))
 
 #get content of file with fileName on the current path
-print(op.getFileContentFileName(fileName="lib/test.py"))
+#print(op.getFileContent(fileName="lib/test.py"))
 
 #get content of file with fileName on the relative path
 #print(op.getFileContent(filePath = "/lib/test.py"))
@@ -60,6 +60,9 @@ print(op.getFileContentFileName(fileName="lib/test.py"))
 #loglar kapali artik
 #Environment.Shared().online()
 
+#remove file
+op.removeFile(fileName=fileName)
+#op.createFile(fileName=fileName, content="hello")
 
 
 #print(MESSAGE.ERROR)
