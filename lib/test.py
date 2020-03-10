@@ -40,11 +40,11 @@ op = FileOperation()
 #get content of file with fileName on the relative path
 #print(op.getFileContent(filePath = "/lib/test.py"))
 
-#init de verilen default path üzerine dosya oluşturulur.
-#op.createFile(fileName=fileName,content="hello")
+#create file with relative path 
+#op.create(filePath=filePath,content="hello")
 
 #path param ile verilen path üzerine dosya oluşturulur.
-#op.createFileWithPath(path="lib",fileName="test.swift",content="hello")
+#op.createFile(path="lib",fileName="test.swift",content="hello")
 
 
 #init de verilen default path üzerine klasör oluşturulur.

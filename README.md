@@ -20,10 +20,10 @@ print(op.getFileContent(fileName=fileName))
 print(op.getFileContent(fileName="lib/test.py"))
 
 #init de verilen default path üzerine dosya oluşturulur.
-op.createFile(fileName=fileName,content="hello")
+op.create(filePath="relateive File Path",content="hello")
 
 #path param ile verilen path üzerine dosya oluşturulur.
-op.createFileWithPath(path="lib",fileName="test.swift",content="hello")
+op.createFile(path="lib",fileName="test.swift",content="hello")
 
 
 #init de verilen default path üzerine klasör oluşturulur.

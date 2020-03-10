@@ -33,28 +33,27 @@ class FileOperation(Base):
         else:
             return self._path
 
+    def create(self,filePath, content):
+        try:
+            filePath = open(filePath, "w")
+            filePath.write(content)
+            filePath.close()
+            Base.log(self, message="FileOperation " + "create : " + str(filePath) + " \ncontent : \n" + content,
+             messageType=MESSAGETYPE.INFO)
+        except OSError as e:
+            Base.log(self,message = "FileOperation " + "create : " 
+            + " \error : \n" + str(e), messageType=MESSAGETYPE.ERROR)
+
     def createFile(self,fileName, content):
         filePath = self.getPath() + CODING.SLASH + fileName
         try:
             filePath = open(filePath, "w")
             filePath.write(content)
             filePath.close()
-            Base.log(self,message = "FileOperation " + "createFile : " + str(filePath) + " \ncontent : \n" + content,
-             messageType=MESSAGETYPE.INFO)
-        except OSError as e:
-            Base.log(self,message = "FileOperation " + "createFile : " 
-            + " \error : \n" + str(e), messageType=MESSAGETYPE.ERROR)
-
-    def createFileWithPath(self,path,fileName, content):
-        filePath = self.getPath() + CODING.SLASH + path + CODING.SLASH + fileName
-        try:
-            filePath = open(filePath, "w")
-            filePath.write(content)
-            filePath.close()
-            Base.log(self,message = "FileOperation " + "createFileWithPath : " + 
+            Base.log(self, message="FileOperation " + "createFile : " +
             str(filePath) + " \ncontent : \n" + content, messageType=MESSAGETYPE.INFO)
         except OSError as e:
-            Base.log(self,message = "FileOperation " + "createFileWithPath : " 
+            Base.log(self, message="FileOperation " + "createFile : "
             + " \error : \n" + str(e), messageType=MESSAGETYPE.ERROR)
 
     def createFolder(self, folderName):
