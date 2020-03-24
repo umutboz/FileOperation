@@ -47,4 +47,5 @@ print(op.aboveNewPath("test"))
 print(op.belowNewPath("test"))
 
 #create new path
+#Directory position above 2
 print(op.createNewPath(pathLocate="../..",folderName="newPath"))
