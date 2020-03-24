@@ -130,5 +130,8 @@ class FileOperation(Base):
     
     def belowNewPath(self,path):
         return os.path.abspath(os.path.join(os.path.dirname( __file__ ), '', path))
+    
+    def createNewPath(self,pathLocate,folderName):
+        return os.path.abspath(os.path.join(os.path.dirname( __file__ ), pathLocate, folderName))
 
  
