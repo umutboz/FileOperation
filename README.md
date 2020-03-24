@@ -45,3 +45,6 @@ op.remove(filePath="relative path")
 
 print(op.aboveNewPath("test"))
 print(op.belowNewPath("test"))
+
+#create new path
+print(op.createNewPath(pathLocate="../..",folderName="newPath"))
