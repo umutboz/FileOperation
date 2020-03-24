@@ -42,3 +42,6 @@ op.removeFile(fileName=fileName)
 
 #remove file with relativePath
 op.remove(filePath="relative path")
+
+print(op.aboveNewPath("test"))
+print(op.belowNewPath("test"))
