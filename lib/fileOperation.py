@@ -124,5 +124,11 @@ class FileOperation(Base):
     def removeFile(self, fileName):
         filePath = self.getPath() + CODING.SLASH + fileName
         self.remove(filePath)
+    
+    def aboveNewPath(self,path):
+        return os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', path))
+    
+    def belowNewPath(self,path):
+        return os.path.abspath(os.path.join(os.path.dirname( __file__ ), '', path))
 
  
