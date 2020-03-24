@@ -25,6 +25,8 @@ op.create(filePath="relateive File Path",content="hello")
 #path param ile verilen path üzerine dosya oluşturulur.
 op.createFile(path="lib",fileName="test.swift",content="hello")
 
+print(op.aboveNewPath("test"))
+print(op.belowNewPath("test"))
 
 #init de verilen default path üzerine klasör oluşturulur.
 op.createFolder(folderName="hello/1")
